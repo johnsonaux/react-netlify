@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from "./Counter";
+import {MyButton} from "./components/Button";
+import {Header} from "./components/Header";
+import Shopping from "./components/Lists";
+import {useState} from "react";
+import ArtistList from "./components/Artist";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [count, setCount] = useState(0)
+
+    function handleClick() {
+        setCount(count + 1)
+    }
+
+    return (
+        <div className="App">
+            <Header/>
+            <ArtistList/>
+            <MyButton count={count} buttonClicked={handleClick}/>
+            <MyButton count={count} buttonClicked={handleClick}/>
+            <Counter/>
+            <Shopping/>
+        </div>
+
+    );
 }
 
 export default App;
